@@ -38,7 +38,7 @@
                   &kp B  &kp Y           &kp O        &kp U        &kp SQT                                                 &kp DQT       &kp L          &kp D        &kp W            &kp V
 &kp TAB           &kp C  &hm LEFT_ALT I  &hm LCTRL E  &hm LSHFT A  &kp COMMA                                               &kp DOT       &hm LSHIFT H   &hm RCTRL T  &hm RIGHT_ALT S  &kp N  &kp Z
 &kp LEFT_CONTROL  &kp G  &kp X           &kp J        &kp K        &kp MINUS  &kp C_MUTE                        &none      &kp QUESTION  &kp R          &kp M        &kp F            &kp P  &kp Q
-                                                      &kp DEL      &mo 1      &kp SPACE   &kp LALT    &kp LGUI  &kp ENTER  &mo 2         &kp BACKSPACE
+                                                      &kp DEL      &mo 1      &kp SPACE   &kp LALT    &kp LGUI  &kp ENTER  &mo 3         &kp BACKSPACE
             >;
 
             sensor-bindings =
@@ -51,7 +51,7 @@
        &none  &none  &none  &none   &none                                        &none  &mkp LCLK  &mkp MCLK  &mkp RCLK  &none
 &none  &none  &none  &none  &none   &none                                        &none  &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT  &none
 &none  &none  &none  &none  &none   &none   &trans                    &mkp MCLK  &none  &none      &none      &none      &none      &none
-                            &trans  &trans  &trans  &trans    &trans  &trans     &mo 3  &trans
+                            &trans  &trans  &trans  &trans    &trans  &trans     &mo 4  &trans
             >;
 
             sensor-bindings =
@@ -59,12 +59,25 @@
                 <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
         };
 
+        MOUSE_LAYER {
+            bindings = <
+       &none  &none  &none  &none   &none                                        &none   &mkp LCLK       &mkp MCLK     &mkp RCLK       &none
+&none  &none  &none  &none  &none   &none                                        &none   &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none
+&none  &none  &none  &none  &none   &none   &none                     &mkp MCLK  &none   &none           &none         &none           &none            &none
+                            &trans  &trans  &trans  &trans    &trans  &trans     &trans  &trans
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
+                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
+        };
+
         sym_num_layer {
             bindings = <
        &none         &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &none                                           &none   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &none
 &none  &kp NUMBER_0  &kp NUMBER_1    &kp NUMBER_2      &kp NUMBER_3          &kp NUMBER_4                                    &kp N5  &kp NUMBER_6           &kp NUMBER_7       &kp NUMBER_8     &kp NUMBER_9  &none
 &none  &none         &none           &none             &none                 &none         &trans                    &trans  &none   &none                  &none              &none            &none         &none
-                                                       &trans                &trans        &trans  &trans    &trans  &trans  &trans  &trans
+                                                       &trans                &mo 2         &trans  &trans    &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings =
@@ -82,10 +95,10 @@
             //                       |      |      |      |      |      |      |      |      |      |      |      |      |
 
             bindings = <
-            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                    &none   &none   &none   &none    &none
-&sys_reset  &kp F2        &kp F3        &kp F4        &kp F5        &kp F6                                          &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &sys_reset
-&kp F1      &none         &none         &none         &none         &none         &trans                    &trans  &none   &none   &none   &none    &none    &kp F12
-                                                      &trans        &trans        &trans  &trans    &trans  &trans  &trans  &trans
+             &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                    &none   &none   &none   &none    &none
+&bootloader  &kp F2        &kp F3        &kp F4        &kp F5        &kp F6                                          &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &bootloader
+&kp F1       &none         &none         &none         &none         &none         &trans                    &trans  &none   &none   &none   &none    &none    &kp F12
+                                                       &trans        &trans        &trans  &trans    &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
