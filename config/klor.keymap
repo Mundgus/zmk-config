@@ -27,6 +27,13 @@
             #binding-cells = <0>;
             bindings = <&mo 5>, <&mo 0>;
         };
+
+        scroll: scroll {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "SCROLL";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+        };
     };
 
     keymap {
@@ -48,9 +55,7 @@
                                                       &kp DEL      &layer_chooser  &kp SPACE   &kp TAB    &kp ESC  &kp ENTER  &kp BACKSPACE  &kp DELETE
             >;
 
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&scroll>;
         };
 
         nav_layer {
@@ -63,7 +68,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
-                <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
+                <&scroll>;
         };
 
         MOUSE_LAYER {
@@ -76,7 +81,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
+                <&scroll>;
         };
 
         sym_num_layer {
@@ -89,7 +94,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
-                <&inc_dec_kp PG_UP PAGE_DOWN>;
+                <&scroll>;
         };
 
         function_layer {
@@ -108,7 +113,9 @@
                                                        &trans        &trans        &trans  &trans    &trans  &trans  &trans  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
         };
 
         LAYER_CHOOSER {
